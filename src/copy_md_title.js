@@ -1,6 +1,11 @@
 
+function copyText(arg) {
+    const text = arg.text;
+    if (text.length > 0) {
+        navigator.clipboard.writeText(text);
+    }
+}
 chrome.runtime.onInstalled.addListener((details) => {
-    console.log(details.reason);
     // コンテキストメニューに追加
     let menu_id = chrome.contextMenus.create({
         id: 'copy_url_md_format',
@@ -9,12 +14,20 @@ chrome.runtime.onInstalled.addListener((details) => {
         type: 'normal',
         visible: true
     });
-    console.log('created menu id:'+menu_id);
 
     // 選択時の処理
     chrome.contextMenus.onClicked.addListener((info, tab) => {
-        console.log('context cliked!');
-        console.log(info);
-        console.log(tab);
+        try {
+            let text_to_be_copied = '['+tab.title+']('+tab.url+')';
+            const tabId = tab.id;
+            chrome.scripting.executeScript({
+                target: { tabId: tabId },
+                func: copyText,
+                args: [{text: text_to_be_copied}]
+            });
+        } catch (err) {
+            console.error('Fail to copy: ', err);
+        }
     });
 });
+

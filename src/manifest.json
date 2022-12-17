@@ -7,8 +7,9 @@
     
     "permissions": [
         "tabs",
-        "clipboardWrite",
-        "contextMenus"
+        "activeTab",
+        "contextMenus",
+        "scripting"
     ],
     "background": {
         "service_worker":"./copy_md_title.js"
