@@ -6,7 +6,7 @@
   - [ドキュメントでのリンクの使用方法 - Contributor guide | Microsoft Learn](https://learn.microsoft.com/ja-jp/contribute/how-to-write-links)
 
 
-# 機能拡張をしたくない場合のTips ;p
+# 機能拡張をしたくない場合のTips:wink:
 ## タイトルをコピーする方法
 1. ブックマークを追加（URLの欄の☆から）
 2. 名前をコピーする
