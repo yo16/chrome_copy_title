@@ -1,4 +1,4 @@
-# chrome_copy_file
+# chrome_copy_title
 - Chromeの機能拡張
 - ページ内を右クリックして「タイトルをコピー」を選択すると、タイトルだけコピーされる。
 - ページ内を右クリックして「MarkDown形式でURLをコピー」を選択すると、MarkDownの形式でコピーされる。
