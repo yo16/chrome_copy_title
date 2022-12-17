@@ -3,16 +3,11 @@ chrome.runtime.onInstalled.addListener((details) => {
     console.log(details.reason);
     // コンテキストメニューに追加
     let menu_id = chrome.contextMenus.create({
-        id: "copy_url_md_format",
-        title: "Copy URL in MD format",
-        contexts: ["all"],
-        type: "normal",
-        visible: true/*,
-        onclick: (info, tab) => {
-            console.log('context cliked!');
-            console.log(info);
-            console.log(tab);
-        }*/
+        id: 'copy_url_md_format',
+        title: 'Copy [Title](URL)',
+        contexts: ['page'],
+        type: 'normal',
+        visible: true
     });
     console.log('created menu id:'+menu_id);
 
