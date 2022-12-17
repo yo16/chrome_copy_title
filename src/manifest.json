@@ -10,8 +10,7 @@
         "clipboardWrite",
         "contextMenus"
     ],
-    "background": 
-        {
-            "service_worker":"./copy_md_title.js"
-        }
+    "background": {
+        "service_worker":"./copy_md_title.js"
+    }
 }
