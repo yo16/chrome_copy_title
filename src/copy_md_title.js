@@ -22,9 +22,17 @@ chrome.runtime.onInstalled.addListener((details) => {
         visible: true,
         parentId: 'copy_url_md_format_topmenu',
     });
-    let menu_id = chrome.contextMenus.create({
+    chrome.contextMenus.create({
         id: 'copy_url_md_format_title',
         title: 'Copy Title',
+        contexts: ['page'],
+        type: 'normal',
+        visible: true,
+        parentId: 'copy_url_md_format_topmenu',
+    });
+    chrome.contextMenus.create({
+        id: 'copy_url_md_format_htmlformat',
+        title: 'Copy <a href="URL">Title</a>',
         contexts: ['page'],
         type: 'normal',
         visible: true,
@@ -37,7 +45,8 @@ chrome.runtime.onInstalled.addListener((details) => {
         const menu_id = info.menuItemId;
         if (
             (menu_id != 'copy_url_md_format_mdformat') &&
-            (menu_id != 'copy_url_md_format_title')
+            (menu_id != 'copy_url_md_format_title') &&
+            (menu_id != 'copy_url_md_format_htmlformat')
         ) {
             console.log('Unknown menu id:'+menu_id);
             return;
@@ -48,7 +57,9 @@ chrome.runtime.onInstalled.addListener((details) => {
         if (menu_id == 'copy_url_md_format_mdformat') {
             text_to_be_copied = '['+tab.title+']('+tab.url+')';
         } else if (menu_id == 'copy_url_md_format_title') {
-            text_to_be_copied = tab.title;
+            text_to_be_copied = '['+tab.title+']('+tab.url+')';
+        } else if (menu_id == 'copy_url_md_format_htmlformat') {
+            text_to_be_copied = '<a href="'+tab.url+'">'+tab.title+'</a>';
         }
         console.log('Copied:'+text_to_be_copied);
         
