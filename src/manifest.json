@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+
+    "name": "Copy Markdown Title",
+    "description": "Copy the title in markdown format",
+    "version": "1.0.0",
+    
+    "permissions": [
+        "tabs",
+        "clipboardWrite",
+        "contextMenus"
+    ],
+    "background": 
+        {
+            "service_worker":"./copy_md_title.js"
+        }
+}

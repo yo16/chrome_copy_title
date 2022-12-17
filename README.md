@@ -12,3 +12,10 @@
 2. 名前をコピーする
 3. 削除する
 
+# 技術メモ
+
+## 参考
+- [API reference - Chrome Developers](https://developer.chrome.com/docs/extensions/reference/)
+- [エクステンション - Google Chrome まとめWiki](http://chrome.half-moon.org/49.html)
+- [Chrome拡張の作り方 (超概要) - Qiita](https://qiita.com/RyBB/items/32b2a7b879f21b3edefc)
+- [(Chrome拡張機能) 右クリックのメニューから現在開いているタブのタイトルとURLをクリップボードに貼り付ける – Ewig Leere(Lab2)](https://labor.ewigleere.net/2022/01/03/chrome-extension-copy-title-and-url-to-clipboard/)
