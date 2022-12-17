@@ -7,23 +7,58 @@ function copyText(arg) {
 }
 chrome.runtime.onInstalled.addListener((details) => {
     // コンテキストメニューに追加
-    let menu_id = chrome.contextMenus.create({
-        id: 'copy_url_md_format',
+    chrome.contextMenus.create({
+        id: 'copy_url_md_format_topmenu',
         title: 'Copy [Title](URL)',
         contexts: ['page'],
         type: 'normal',
-        visible: true
+        visible: true,
+    });
+    chrome.contextMenus.create({
+        id: 'copy_url_md_format_mdformat',
+        title: 'Copy [Title](URL)',
+        contexts: ['page'],
+        type: 'normal',
+        visible: true,
+        parentId: 'copy_url_md_format_topmenu',
+    });
+    let menu_id = chrome.contextMenus.create({
+        id: 'copy_url_md_format_title',
+        title: 'Copy Title',
+        contexts: ['page'],
+        type: 'normal',
+        visible: true,
+        parentId: 'copy_url_md_format_topmenu',
     });
 
     // 選択時の処理
     chrome.contextMenus.onClicked.addListener((info, tab) => {
+        // ２つのサブメニュー以外は何もしない
+        const menu_id = info.menuItemId;
+        if (
+            (menu_id != 'copy_url_md_format_mdformat') &&
+            (menu_id != 'copy_url_md_format_title')
+        ) {
+            console.log('Unknown menu id:'+menu_id);
+            return;
+        }
+
+        // メニューによってコピーする文字列を変える
+        let text_to_be_copied = '';
+        if (menu_id == 'copy_url_md_format_mdformat') {
+            text_to_be_copied = '['+tab.title+']('+tab.url+')';
+        } else if (menu_id == 'copy_url_md_format_title') {
+            text_to_be_copied = tab.title;
+        }
+        console.log('Copied:'+text_to_be_copied);
+        
         try {
-            let text_to_be_copied = '['+tab.title+']('+tab.url+')';
+            // コピー
             const tabId = tab.id;
             chrome.scripting.executeScript({
                 target: { tabId: tabId },
                 func: copyText,
-                args: [{text: text_to_be_copied}]
+                args: [{text: text_to_be_copied}],
             });
         } catch (err) {
             console.error('Fail to copy: ', err);
