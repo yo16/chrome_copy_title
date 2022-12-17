@@ -42,7 +42,7 @@ chrome.runtime.onInstalled.addListener((details) => {
     // 選択時の処理
     chrome.contextMenus.onClicked.addListener((info, tab) => {
         // ２つのサブメニュー以外は何もしない
-        const menu_id = info.menuItemId;
+        let menu_id = info.menuItemId;
         if (
             (menu_id != 'copy_url_md_format_mdformat') &&
             (menu_id != 'copy_url_md_format_title') &&
@@ -57,7 +57,7 @@ chrome.runtime.onInstalled.addListener((details) => {
         if (menu_id == 'copy_url_md_format_mdformat') {
             text_to_be_copied = '['+tab.title+']('+tab.url+')';
         } else if (menu_id == 'copy_url_md_format_title') {
-            text_to_be_copied = '['+tab.title+']('+tab.url+')';
+            text_to_be_copied = tab.title;
         } else if (menu_id == 'copy_url_md_format_htmlformat') {
             text_to_be_copied = '<a href="'+tab.url+'">'+tab.title+'</a>';
         }
