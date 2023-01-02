@@ -3,7 +3,7 @@
 
     "name": "Copy Markdown Title",
     "description": "Copy the title in markdown format or only title by page context menu.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "icons": {
         "16": "CopyMarkdownTitle_icon16.png",
         "48": "CopyMarkdownTitle_icon48.png",

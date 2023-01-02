@@ -9,14 +9,14 @@ chrome.runtime.onInstalled.addListener((details) => {
     // コンテキストメニューに追加
     chrome.contextMenus.create({
         id: 'copy_url_md_format_topmenu',
-        title: 'Copy [Title](URL)',
+        title: 'Copy Title,URL',
         contexts: ['page'],
         type: 'normal',
         visible: true,
     });
     chrome.contextMenus.create({
         id: 'copy_url_md_format_mdformat',
-        title: 'Copy [Title](URL)',
+        title: 'Markdown: [Title](URL)',
         contexts: ['page'],
         type: 'normal',
         visible: true,
@@ -24,7 +24,7 @@ chrome.runtime.onInstalled.addListener((details) => {
     });
     chrome.contextMenus.create({
         id: 'copy_url_md_format_title',
-        title: 'Copy Title',
+        title: 'Title only',
         contexts: ['page'],
         type: 'normal',
         visible: true,
@@ -32,7 +32,7 @@ chrome.runtime.onInstalled.addListener((details) => {
     });
     chrome.contextMenus.create({
         id: 'copy_url_md_format_htmlformat',
-        title: 'Copy <a href="URL">Title</a>',
+        title: 'HTML: <a href="URL">Title</a>',
         contexts: ['page'],
         type: 'normal',
         visible: true,
