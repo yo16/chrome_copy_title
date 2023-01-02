@@ -2,7 +2,7 @@
     "manifest_version": 3,
 
     "name": "Copy Markdown Title",
-    "description": "Copy the title in markdown format or only title by page context menu.",
+    "description": "Copy the Title and URL in Markdown format or HTML Anchor format or only Title by page context menu.",
     "version": "1.0.2",
     "icons": {
         "16": "CopyMarkdownTitle_icon16.png",
